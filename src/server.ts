@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mustache from "mustache-express";
 import path from "path";
+import mainRoutes from "./routes/index";
 
 dotenv.config();
 
@@ -15,8 +16,13 @@ server.use(express.static(path.join(__dirname, "../public")));
 
 
 //rotas
+server.use(mainRoutes);
 
+//not found
+server.use((req, res)=>{
+    res.send("Erro 404");
+});
 
 
 //rodando o servidor
-server.listen(process.env.PORT);
+server.listen(4000, ()=>{console.log('servidor rodando')});
