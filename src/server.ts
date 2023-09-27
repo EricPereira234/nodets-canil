@@ -25,4 +25,4 @@ server.use((req, res)=>{
 
 
 //rodando o servidor
-server.listen(4000, ()=>{console.log('servidor rodando')});
+server.listen(4000);
